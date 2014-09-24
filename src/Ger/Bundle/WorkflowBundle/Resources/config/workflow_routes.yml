@@ -1,0 +1,5 @@
+workflows:
+    resource: Ger\Bundle\WorkflowBundle\Controller\WorkflowController
+    type:     rest
+    prefix:   /
+    name_prefix:  api_
