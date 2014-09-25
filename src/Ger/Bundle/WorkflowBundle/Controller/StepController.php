@@ -7,65 +7,65 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Controller\Annotations as FOS;
 
 /**
- * Class WorkflowController
- * @package Ger\Bundle\WorkflowBundle\Controller
+ * Class StepController
+ * @package Ger\Bundle\StepBundle\Controller
  * @FOS\NamePrefix("api_")
  */
-class WorkflowController extends Controller
+class StepController extends Controller
 {
     /**
 
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get Workflows List",
+     *  section="Steps",
+     *  description="Get Steps List",
      * )
      */
-     public function getWorkflowsAction()
+     public function getStepsAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get One Workflow",
+     *  section="Steps",
+     *  description="Get One Step",
      * )
      */
-     public function getWorkflowAction($slug)
+     public function getStepAction($slug)
     {
         return array('slug' => $slug);
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Create New Workflow",
+     *  section="Steps",
+     *  description="Create New Step",
      * )
      */
-     public function postWorkflowAction()
+     public function postStepAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Update One Workflow",
+     *  section="Steps",
+     *  description="Update One Step",
      * )
      */
-     public function putWorkflowAction($slug)
+     public function putStepAction($slug)
     {
         return array('slug' => $slug);
     }
      /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Delete One Workflow",
+     *  section="Steps",
+     *  description="Delete One Step",
      * )
      */
-     public function deleteWorkflowAction($slug)
+     public function deleteStepAction($slug)
     {
         return array('slug' => $slug);
     }

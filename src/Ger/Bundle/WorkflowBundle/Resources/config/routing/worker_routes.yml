@@ -1,0 +1,5 @@
+workers:
+    resource: Ger\Bundle\WorkflowBundle\Controller\WorkerController
+    type:     rest
+    prefix:   /
+    name_prefix:  api_

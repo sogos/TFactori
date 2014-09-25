@@ -1,7 +1,6 @@
-workflows:
-    type: rest  # Required for `RestYamlLoader` to process imported routes
-    prefix: /api
-    resource: "@GerWorkflowBundle/Resources/config/workflow_routes.yml"
+GerWorflowBundleBundle:
+    resource: "@GerWorkflowBundle/Resources/config/routing.yml"
+    prefix:   /
 
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"

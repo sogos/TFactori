@@ -1,0 +1,5 @@
+hosts:
+    resource: Ger\Bundle\WorkflowBundle\Controller\HostController
+    type:     rest
+    prefix:   /
+    name_prefix:  api_

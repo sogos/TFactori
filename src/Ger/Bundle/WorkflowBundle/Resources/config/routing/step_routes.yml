@@ -1,0 +1,5 @@
+steps:
+    resource: Ger\Bundle\WorkflowBundle\Controller\StepController
+    type:     rest
+    prefix:   /
+    name_prefix:  api_

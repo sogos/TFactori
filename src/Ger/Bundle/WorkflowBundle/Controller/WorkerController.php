@@ -7,65 +7,64 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Controller\Annotations as FOS;
 
 /**
- * Class WorkflowController
- * @package Ger\Bundle\WorkflowBundle\Controller
+ * Class WorkerController
+ * @package Ger\Bundle\WorkerBundle\Controller
  * @FOS\NamePrefix("api_")
  */
-class WorkflowController extends Controller
+class WorkerController extends Controller
 {
     /**
-
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get Workflows List",
+     *  section="Workers",
+     *  description="Get Workers List",
      * )
      */
-     public function getWorkflowsAction()
+     public function getWorkersAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get One Workflow",
+     *  section="Workers",
+     *  description="Get One Worker",
      * )
      */
-     public function getWorkflowAction($slug)
+     public function getWorkerAction($slug)
     {
         return array('slug' => $slug);
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Create New Workflow",
+     *  section="Workers",
+     *  description="Create New Worker",
      * )
      */
-     public function postWorkflowAction()
+     public function postWorkerAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Update One Workflow",
+     *  section="Workers",
+     *  description="Update One Worker",
      * )
      */
-     public function putWorkflowAction($slug)
+     public function putWorkerAction($slug)
     {
         return array('slug' => $slug);
     }
      /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Delete One Workflow",
+     *  section="Workers",
+     *  description="Delete One Worker",
      * )
      */
-     public function deleteWorkflowAction($slug)
+     public function deleteWorkerAction($slug)
     {
         return array('slug' => $slug);
     }

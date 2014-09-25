@@ -7,76 +7,68 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Controller\Annotations as FOS;
 
 /**
- * Class WorkflowController
- * @package Ger\Bundle\WorkflowBundle\Controller
+ * Class HostController
+ * @package Ger\Bundle\HostBundle\Controller
  * @FOS\NamePrefix("api_")
  */
-class WorkflowController extends Controller
+class HostController extends Controller
 {
     /**
 
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get Workflows List",
+     *  section="Hosts",
+     *  description="Get Hosts List",
      * )
      */
-     public function getWorkflowsAction()
+     public function getHostsAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Get One Workflow",
+     *  section="Hosts",
+     *  description="Get One Host",
      * )
      */
-     public function getWorkflowAction($slug)
+     public function getHostAction($slug)
     {
         return array('slug' => $slug);
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Create New Workflow",
+     *  section="Hosts",
+     *  description="Create New Host",
      * )
      */
-     public function postWorkflowAction()
+     public function postHostAction()
     {
         return array();
     }
     /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Update One Workflow",
+     *  section="Hosts",
+     *  description="Update One Host",
      * )
      */
-     public function putWorkflowAction($slug)
+     public function putHostAction($slug)
     {
         return array('slug' => $slug);
     }
      /**
      * @ApiDoc(
      *  resource=true,
-     *  section="Workflows",
-     *  description="Delete One Workflow",
+     *  section="Hosts",
+     *  description="Delete One Host",
      * )
      */
-     public function deleteWorkflowAction($slug)
+     public function deleteHostAction($slug)
     {
         return array('slug' => $slug);
     }
-
-
-
-
-
-
-
-
 
 
 }
