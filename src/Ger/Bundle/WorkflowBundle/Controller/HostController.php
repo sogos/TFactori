@@ -23,7 +23,10 @@ class HostController extends Controller
      */
      public function getHostsAction()
     {
-        return array();
+        return array(
+            'success' => true,
+            'hosts' => array( )
+        );
     }
     /**
      * @ApiDoc(
@@ -34,7 +37,10 @@ class HostController extends Controller
      */
      public function getHostAction($slug)
     {
-        return array('slug' => $slug);
+        return array(
+            'success' => true,
+            'host' => array( )
+        );
     }
     /**
      * @ApiDoc(
@@ -45,7 +51,10 @@ class HostController extends Controller
      */
      public function postHostAction()
     {
-        return array();
+        return array(
+            'success' => true,
+            'host' => array( )
+        );
     }
     /**
      * @ApiDoc(
@@ -56,7 +65,10 @@ class HostController extends Controller
      */
      public function putHostAction($slug)
     {
-        return array('slug' => $slug);
+        return array(
+            'success' => true,
+            'host' => array( )
+        );
     }
      /**
      * @ApiDoc(
@@ -67,7 +79,9 @@ class HostController extends Controller
      */
      public function deleteHostAction($slug)
     {
-        return array('slug' => $slug);
+        return array(
+            'success' => true
+        );
     }
 
 

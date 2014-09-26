@@ -16,16 +16,19 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-	    new FOS\RestBundle\FOSRestBundle(),
-	    new JMS\SerializerBundle\JMSSerializerBundle(),
-	    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+    	    new FOS\RestBundle\FOSRestBundle(),
+	        new JMS\SerializerBundle\JMSSerializerBundle(),
+	        new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Ger\Bundle\WorkflowBundle\GerWorkflowBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;

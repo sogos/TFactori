@@ -28,6 +28,7 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
@@ -59,6 +60,33 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+#        entity_managers:
+#            default:
+#                mappings:
+#                    gedmo_translatable:
+#                        type: annotation
+#                        prefix: Gedmo\Translatable\Entity
+#                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+#                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+#                        is_bundle: false
+#                    gedmo_translator:
+#                        type: annotation
+#                        prefix: Gedmo\Translator\Entity
+#                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+#                        alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+#                        is_bundle: false
+#                    gedmo_loggable:
+#                        type: annotation
+#                        prefix: Gedmo\Loggable\Entity
+#                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+#                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+#                        is_bundle: false
+#                    gedmo_tree:
+#                        type: annotation
+#                        prefix: Gedmo\Tree\Entity
+#                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+#                        alias: GedmoTree # this one is optional and will default to the name set for the mapping
+#                        is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -72,6 +100,9 @@ nelmio_api_doc:
     name: TFactori API
 
 fos_rest:
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
     routing_loader:
         default_format: json
     param_fetcher_listener: true
@@ -83,3 +114,9 @@ fos_rest:
 
 sensio_framework_extra:
     view:    { annotations: false }
+
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            sluggable: true

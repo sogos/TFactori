@@ -2,16 +2,17 @@
 
 namespace Ger\Bundle\WorkflowBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use FOS\RestBundle\Controller\Annotations as FOS;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Translation\Exception\NotFoundResourceException;
 
 /**
  * Class WorkflowController
  * @package Ger\Bundle\WorkflowBundle\Controller
  * @FOS\NamePrefix("api_")
  */
-class WorkflowController extends Controller
+class WorkflowController extends BaseController
 {
     /**
 
@@ -23,7 +24,11 @@ class WorkflowController extends Controller
      */
      public function getWorkflowsAction()
     {
-        return array();
+        $workflows = $this->getWorkflowRepository()->findAll();
+        return array(
+            'success' => true,
+            'workflows' => $workflows
+        );
     }
     /**
      * @ApiDoc(
@@ -34,7 +39,14 @@ class WorkflowController extends Controller
      */
      public function getWorkflowAction($slug)
     {
-        return array('slug' => $slug);
+        $workflow = $this->getWorkflowRepository()->findOneBySlug($slug);
+        if(!$workflow) {
+            throw New NotFoundHttpException("Workflow with slug: " . $slug . " can't be found");
+        }
+        return array(
+            'success' => true,
+            'workflow' => $workflow
+        );
     }
     /**
      * @ApiDoc(

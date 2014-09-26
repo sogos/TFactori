@@ -1,0 +1,31 @@
+<?php
+
+namespace Ger\Bundle\WorkflowBundle\Entity;
+
+use Ger\Bundle\WorkflowBundle\Model\Workflow as BaseWorkflow;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Workflow
+ * @package Ger\Bundle\WorkflowBundle\Entity
+ * @ORM\Entity
+ */
+class Workflow extends BaseWorkflow {
+
+    /**
+     * @ORM\Id
+     * @var id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @return id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+}

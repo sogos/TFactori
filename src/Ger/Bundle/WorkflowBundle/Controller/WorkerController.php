@@ -70,12 +70,4 @@ class WorkerController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
 }
