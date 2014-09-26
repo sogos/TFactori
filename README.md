@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/sogos/TFactori.svg?branch=master)](https://travis-ci.org/sogos/TFactori)
+
+
 Symfony Standard Edition
 ========================
 
