@@ -48,6 +48,7 @@ class WorkflowControllerTest extends WebTestCase
         $content_decoded = json_decode($content, true);
         $this->assertTrue(array_key_exists('success', $content_decoded));
         $this->assertTrue(array_key_exists('workflow', $content_decoded));
+        $this->assertTrue($content_decoded['workflow']['slug'] == "test1");
 
     }
 }
