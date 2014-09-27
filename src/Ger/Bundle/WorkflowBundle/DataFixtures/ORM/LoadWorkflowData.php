@@ -15,9 +15,8 @@ class LoadWorkflowData implements FixtureInterface {
     {
         $workflowTest = new Workflow();
         $workflowTest->setName("Test1");
-        $workflowTest->setStartDate(New \DateTime());
-        $workflowTest->setEndDate(New \DateTime());
-
+        $workflowTest->setStartDate(New \DateTime('now'));
+        $workflowTest->setEndDate(New \DateTime('today'));
         $manager->persist($workflowTest);
         $manager->flush();
     }

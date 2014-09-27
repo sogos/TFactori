@@ -30,7 +30,6 @@ class WorkflowControllerTest extends WebTestCase
     public function testGetWorkflowAction()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/api/workflows/testZZ.json');
         $this->assertTrue($client->getResponse()->getStatusCode() == 404);
         $content = $client->getResponse()->getContent();
@@ -49,6 +48,36 @@ class WorkflowControllerTest extends WebTestCase
         $this->assertTrue(array_key_exists('success', $content_decoded));
         $this->assertTrue(array_key_exists('workflow', $content_decoded));
         $this->assertTrue($content_decoded['workflow']['slug'] == "test1");
+
+    }
+
+    public function testPostWorkflowAction()
+    {
+        $client = static::createClient();
+        $client->request('POST', '/api/workflows.json', array(
+            'ger_workflow' => array(
+                'name' => 'workflow1',
+                'start_date' => '25-03-1983 11:12:12+100',
+                'end_date' => '25-03-1983 12:12:12+100'
+            )
+        ));
+        $this->assertTrue($client->getResponse()->getStatusCode() == 201, "Something Blocked the creation of a Workflow");
+        $client->request('POST', '/api/workflows.json', array(
+            'ger_workflow' => array(
+                'name' => 'workflow1',
+                'start_date' => '25-03-1983 11:12:12+100',
+                'end_date' => '25-03-1983 12:12:12+100'
+            )
+        ));
+        $this->assertTrue($client->getResponse()->getStatusCode() == 201, "Must be able to create Workflow with same name");
+
+    }
+
+    public function testDeleteWorkflowAction()
+    {
+        $client = static::createClient();
+        $client->request('DELETE', '/api/workflows/workflow1.json');
+        $this->assertTrue($client->getResponse()->getStatusCode() == 204, "Something Blocked the creation of a Workflow");
 
     }
 }

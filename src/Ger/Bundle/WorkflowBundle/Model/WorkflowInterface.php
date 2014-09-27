@@ -26,16 +26,16 @@ interface WorkflowInterface {
     public function setSlug($slug);
 
     /**
-     * @param $start_date
+     * @param \DateTime $start_date
      * @return $this
      */
-    public function setStartDate($start_date);
+    public function setStartDate(\DateTime $start_date = null);
 
     /**
-     * @param $end_date
+     * @param \DateTime $end_date
      * @return $this
      */
-    public function setEndDate($end_date);
+    public function setEndDate(\DateTime $end_date = null);
 
 
 } 

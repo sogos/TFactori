@@ -1,0 +1,5 @@
+services:
+    ger_worklow_bundle.form.type.worflow:
+        class: Ger\Bundle\WorkflowBundle\Form\Type\WorkflowType
+        tags:
+            - { name: form.type, alias: ger_workflow }

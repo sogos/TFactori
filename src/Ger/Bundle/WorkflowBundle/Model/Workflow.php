@@ -4,6 +4,7 @@ namespace Ger\Bundle\WorkflowBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Storage agnostic workflow object
@@ -20,15 +21,20 @@ class Workflow implements WorkflowInterface {
     /**
      * @var string
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
     protected $name;
     /**
      * @var datetime
+     * @Assert\NotBlank()
+     * @Assert\DateTime()
      * @ORM\Column(type="datetime")
      */
     protected $start_date;
     /**
      * @var datetime
+     * @Assert\NotBlank()
+     * @Assert\DateTime()
      * @ORM\Column(type="datetime")
      */
     protected $end_date;
@@ -76,20 +82,20 @@ class Workflow implements WorkflowInterface {
     }
 
     /**
-     * @param $start_date
+     * @param \DateTime $start_date
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setStartDate(\DateTime $start_date = null)
     {
         $this->start_date = $start_date;
         return $this;
     }
 
     /**
-     * @param $end_date
+     * @param \DateTime $end_date
      * @return $this
      */
-    public function setEndDate($end_date)
+    public function setEndDate(\DateTime $end_date = null)
     {
         $this->end_date = $end_date;
         return $this;
