@@ -2,14 +2,13 @@
 
 namespace Ger\Bundle\WorkflowBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class HostControllerTest extends WebTestCase
+class HostControllerTest extends BaseController
 {
 
     public function testGetHostsAction()
     {
-        $client = static::createClient();
+        $client = $this->createAuthenticatedClient();
 
         $crawler = $client->request('GET', '/api/hosts.json');
 
@@ -28,7 +27,7 @@ class HostControllerTest extends WebTestCase
 
     public function testGetHostAction()
     {
-        $client = static::createClient();
+        $client = $this->createAuthenticatedClient();
 
         $crawler = $client->request('GET', '/api/hosts/1.json');
 

@@ -1,0 +1,22 @@
+<div>
+    <h2><i class="fa fa-cogs"></i> Workflows</h2>
+    <table class="large-12 small-12 medium-12">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="workflow in workflows">
+            <td>{{ workflow.name }}</td>
+            <td><a href="#/workflows/{{ workflow.slug }}">{{ workflow.slug }}</a></td>
+            <td>
+                <button ng-click="deleteWorkflow(workflow)" class="button alert tiny">Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

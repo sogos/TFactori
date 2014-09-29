@@ -34,7 +34,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ "GerFrontendBundle" ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -120,3 +120,9 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+lexik_jwt_authentication:
+    private_key_path: %kernel.root_dir%/var/jwt/private.pem   # ssh private key path
+    public_key_path:  %kernel.root_dir%/var/jwt/public.pem    # ssh public key path
+    pass_phrase:      'evan'                                      # ssh key pass phrase
+    token_ttl:        86400                                   # token ttl - defaults to 86400

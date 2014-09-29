@@ -1,7 +1,24 @@
+ger_frontend:
+    resource: "@GerFrontendBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 GerWorflowBundleBundle:
     resource: "@GerWorkflowBundle/Resources/config/routing.yml"
     prefix:   /
+    options:
+        expose: true
+
 
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
+    prefix:   /doc
+
+login_check:
+    pattern:   /api/login_check
+    options:
+        expose: true
+
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

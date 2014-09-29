@@ -29,10 +29,7 @@ class WorkflowController extends BaseController
     public function getWorkflowsAction()
     {
         $workflows = $this->getWorkflowRepository()->findAll();
-        return array(
-            'success' => true,
-            'workflows' => $workflows
-        );
+        return $workflows;
     }
 
     /**
