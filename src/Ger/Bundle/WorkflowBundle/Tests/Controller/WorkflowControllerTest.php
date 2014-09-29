@@ -14,7 +14,7 @@ class WorkflowControllerTest extends BaseController
         $this->assertTrue($client->getResponse()->getStatusCode() == 200, "Received: " . $client->getResponse()->getStatusCode());
         $content = $client->getResponse()->getContent();
         $workflows_decoded = json_decode($content, true);
-        $this->assertTrue(count($workflows_decoded) == 1, "There is more than one workflow in database");
+        $this->assertTrue(count($workflows_decoded) == 3, "There is more than one workflow in database");
     }
 
     public function testGetWorkflowAction()
