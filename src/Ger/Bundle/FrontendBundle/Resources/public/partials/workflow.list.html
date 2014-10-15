@@ -11,10 +11,10 @@
         <tbody>
         <tr ng-repeat="workflow in workflows">
             <td>{{ workflow.name }}</td>
-            <td><a href="#/workflows/{{ workflow.slug }}">{{ workflow.slug }}</a></td>
+            <td><a href="#/workflows/{{ workflow.slug }}/show">{{ workflow.slug }}</a></td>
             <td>
-                <button ng-click="deleteWorkflow(workflow)" class="button alert tiny">Delete
-                </button>
+                <a href="#/workflows/{{ workflow.slug }}/edit" class="button info tiny">Editer</a>
+                <button ng-click="deleteWorkflow(workflow)" class="button alert tiny">Delete</button>
             </td>
         </tr>
         </tbody>

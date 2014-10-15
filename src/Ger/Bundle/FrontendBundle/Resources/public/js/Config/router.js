@@ -11,17 +11,26 @@ tFactori.config(['$routeProvider',
                 }
 
             })
-            .when('/workflows/:slug', {
+            .when('/workflows/:workflowId/show', {
                 templateUrl: '/bundles/gerfrontend/partials/workflow.show.html',
-                controller: 'WorkflowCtrl',
+                controller: 'WorkflowEditCtrl',
                 resolve: {
-                    workflows: function(WorkflowLoader){
+                    workflow: function(WorkflowLoader){
                         return WorkflowLoader();
                     }
                 }
 
-            }
+            })
+            .when('/workflows/:workflowId/edit', {
+                templateUrl: '/bundles/gerfrontend/partials/workflow.edit.html',
+                controller: 'WorkflowEditCtrl',
+                resolve: {
+                    workflow: function(WorkflowLoader){
+                        return WorkflowLoader();
+                    }
+                }
 
-        );
+            })
+        ;
     }
 ]);

@@ -42,10 +42,7 @@ class WorkflowController extends BaseController
     public function getWorkflowAction($slug)
     {
         $workflow = $this->getWorkflowBySlug($slug);
-        return array(
-            'success' => true,
-            'workflow' => $workflow
-        );
+        return $workflow;
     }
 
     private function getWorkflowBySlug($slug)

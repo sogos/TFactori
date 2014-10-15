@@ -1,7 +1,24 @@
 <div class="row">
-    <h2><i class="fa fa-cogs"></i> {{ workflows.workflow.name }}</h2>
-
+    <h2><i class="fa fa-cogs"></i> {{ workflow.name }}</h2>
 </div>
+        <div class="row">
+            <table class="table large-12">
+                <thead>
+                <tr>
+                    <th>Slug</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ workflow.slug }}</td>
+                    <td>{{ workflow.start_date | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+                    <td>{{ workflow.end_date | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 <div class="row">
             <a class="button info tiny" href="#/workflows">Retour</a>
 </div>

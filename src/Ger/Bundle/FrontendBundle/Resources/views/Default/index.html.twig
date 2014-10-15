@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
-    <script src="//cdn.foundation5.zurb.com/foundation.js"></script>
+    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script type="text/javascript"  src="//cdnjs.cloudflare.com/ajax/libs/restangular/1.4.0/restangular.min.js"></script>
+    <script type="text/javascript"  src="//cdn.foundation5.zurb.com/foundation.js"></script>
     <link href="//cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
@@ -21,7 +23,7 @@
     '@GerFrontendBundle/Resources/public/js/Config/*.js'
     '@GerFrontendBundle/Resources/public/js/Resources/*.js'
     '@GerFrontendBundle/Resources/public/js/Controllers/*.js'
-    '@GerFrontendBundle/Resources/public/js/Interceptors/*.js' %}
+    '@GerFrontendBundle/Resources/public/js/Interceptors/authInterceptor.js'%}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     {% stylesheets  '@GerFrontendBundle/Resources/public/css/tFactori.css' %}
@@ -45,6 +47,7 @@
                 </ul>
                 <!-- Right Nav Section -->
                 <ul class="right">
+                    <li ng-show="user.isAuthenticated"><a><i class="fa fa-user"></i> {{ "{{ user.username }}" }} <font color="yellow"><i ng-show="user.roles.indexOf('ROLE_ADMIN') >= 0" class="fa fa-star"></i></font></a></li>
                     <li><a class="" ng-show="user.isAuthenticated" ng-click="logout()">Se déconnecter</a></li>
                 </ul>
             </section>

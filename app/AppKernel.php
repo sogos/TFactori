@@ -22,8 +22,9 @@ class AppKernel extends Kernel
 	        new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Ger\Bundle\WorkflowBundle\GerWorkflowBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new Ger\Bundle\FrontendBundle\GerFrontendBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Ger\Bundle\FrontendBundle\GerFrontendBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

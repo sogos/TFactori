@@ -22,3 +22,8 @@ login_check:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+api_root:
+    pattern:   /api
+    options:
+        expose: true

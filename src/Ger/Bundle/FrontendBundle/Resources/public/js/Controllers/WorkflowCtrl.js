@@ -1,8 +1,10 @@
-tFactori.controller('WorkflowCtrl', function ($scope, workflows, Loading, Workflow) {
-    $scope.workflows = workflows;
-   $scope.getWorkflows = function () {
+tFactori.controller('WorkflowCtrl', function ($scope, workflows, Loading) {
+   $scope.workflows = workflows;
+
+   /*
+    $scope.getWorkflows = function () {
         Loading.isLoading = true;
-       Workflow.query()
+       Restangular.query()
             .$promise
             .then(function(data) {
                 Loading.isLoading = false;
@@ -18,4 +20,21 @@ tFactori.controller('WorkflowCtrl', function ($scope, workflows, Loading, Workfl
         });
 
     }
+    */
+});
+
+
+tFactori.controller('WorkflowEditCtrl', function ($scope, workflow, Loading) {
+    $scope.workflow = workflow;
+    /*
+    $scope.getWorkflow = function () {
+        Loading.isLoading = true;
+        Workflow.get({ slug: $scope.workflow.slug})
+            .$promise
+            .then(function(data) {
+                Loading.isLoading = false;
+                $scope.workflow = data;
+            });
+    };
+    */
 });

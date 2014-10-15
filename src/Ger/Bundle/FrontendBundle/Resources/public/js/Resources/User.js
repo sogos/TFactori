@@ -3,6 +3,7 @@ tFactori.provider("User", function() {
         return {
             username: "",
             password: "",
+            roles: [],
             isAuthenticated: false
         }
     }

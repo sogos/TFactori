@@ -1,3 +1,3 @@
 tFactori.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptor');
+    $httpProvider.interceptors.push('TFactoriAuthInterceptor');
 });

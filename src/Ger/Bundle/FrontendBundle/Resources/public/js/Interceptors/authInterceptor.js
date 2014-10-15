@@ -1,4 +1,4 @@
-tFactori.factory('authInterceptor', function ($rootScope, $q, $window) {
+tFactori.factory('TFactoriAuthInterceptor', function ($rootScope, $q, $window) {
     return {
         request: function (config) {
             config.headers = config.headers || {};
