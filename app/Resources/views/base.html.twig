@@ -1,13 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"  src="//cdn.foundation5.zurb.com/foundation.js"></script>
+    <link href="//cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+    {% stylesheets  '@GerFrontendBundle/Resources/public/css/tFactori.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+</head>
+<body>
+<div class="row">
+    <div class="contain-to-grid sticky">
+        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+            <ul class="title-area">
+                <li class="name">
+                    <a href="/"><h1>Task Factori</h1></a>
+                </li>
+            </ul>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li class="active"><a href="#/workflows">Workflows</a></li>
+                </ul>
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li ng-show="user.isAuthenticated"><a><i class="fa fa-user"></i> {{ app.user.username }}  {% if is_granted('ROLE_USER') %} User {% endif %}</a></li>
+                    <li><a href="{{ path("fos_user_security_logout") }}">Se déconnecter</a></li>
+                </ul>
+            </section>
+            {% else %}
+                <section class="top-bar-section">
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li ng-show="user.isAuthenticated"><a><i class="fa fa-user"></i> {{ "{{ user.username }}" }} <font color="yellow"><i ng-show="user.roles.indexOf('ROLE_ADMIN') >= 0" class="fa fa-star"></i></font></a></li>
+                        <li><a href="{{ path("fos_user_security_login") }}" class="">Se connecter</a></li>
+                    </ul>
+                </section>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>

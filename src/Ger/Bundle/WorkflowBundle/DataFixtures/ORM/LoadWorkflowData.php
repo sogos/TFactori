@@ -5,6 +5,7 @@ namespace Ger\Bundle\WorkflowBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Ger\Bundle\WorkflowBundle\Entity\Step;
 use Ger\Bundle\WorkflowBundle\Entity\Workflow;
 
 class LoadWorkflowData implements FixtureInterface {
@@ -17,6 +18,17 @@ class LoadWorkflowData implements FixtureInterface {
         $workflowTest->setName("Test1");
         $workflowTest->setStartDate(New \DateTime('now'));
         $workflowTest->setEndDate(New \DateTime('today'));
+        $step1 = New Step();
+        $step1->setRetryOnFailure(true);
+        $step1->setName("Bonjour");
+        $step1->setWorkflow($workflowTest);
+        $step2 = New Step();
+        $step2->setName("Au Revoir");
+        $step2->setParent($step1);
+        $step2->setRetryOnFailure(false);
+        $step2->setWorkflow($workflowTest);
+        $manager->persist($step1);
+        $manager->persist($step2);
         $manager->persist($workflowTest);
         $workflowTest2 = new Workflow();
         $workflowTest2->setName("Test2");

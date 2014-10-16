@@ -16,7 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
     	    new FOS\RestBundle\FOSRestBundle(),
 	        new JMS\SerializerBundle\JMSSerializerBundle(),
 	        new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
@@ -24,6 +23,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Ger\Bundle\FrontendBundle\GerFrontendBundle(),
+            new FOS\UserBundle\FOSUserBundle()
 
         );
 

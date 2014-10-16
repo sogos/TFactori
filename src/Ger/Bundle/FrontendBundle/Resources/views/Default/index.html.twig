@@ -1,128 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="tFactori">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
-    <script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-    <script type="text/javascript"  src="//cdnjs.cloudflare.com/ajax/libs/restangular/1.4.0/restangular.min.js"></script>
-    <script type="text/javascript"  src="//cdn.foundation5.zurb.com/foundation.js"></script>
-    <link href="//cdn.foundation5.zurb.com/foundation.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
-    {#    <script src="//maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js"></script>#}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-    {% javascripts
-    '@GerFrontendBundle/Resources/public/js/TFactori.js'
-    '@GerFrontendBundle/Resources/public/js/Config/*.js'
-    '@GerFrontendBundle/Resources/public/js/Resources/*.js'
-    '@GerFrontendBundle/Resources/public/js/Controllers/*.js'
-    '@GerFrontendBundle/Resources/public/js/Interceptors/authInterceptor.js'%}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% stylesheets  '@GerFrontendBundle/Resources/public/css/tFactori.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-</head>
-<body>
-<div ng-controller="UserCtrl">
-<div class="row">
-    <div class="contain-to-grid sticky">
-        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-            <ul class="title-area">
-                <li class="name">
-                    <a href="#/"><h1>Task Factori</h1></a>
-                </li>
-            </ul>
-            <section class="top-bar-section">
-                <!-- Left Nav Section -->
-                <ul class="left">
-                    <li class="active"><a href="#/workflows">Workflows</a></li>
-                </ul>
-                <!-- Right Nav Section -->
-                <ul class="right">
-                    <li ng-show="user.isAuthenticated"><a><i class="fa fa-user"></i> {{ "{{ user.username }}" }} <font color="yellow"><i ng-show="user.roles.indexOf('ROLE_ADMIN') >= 0" class="fa fa-star"></i></font></a></li>
-                    <li><a class="" ng-show="user.isAuthenticated" ng-click="logout()">Se déconnecter</a></li>
-                </ul>
-            </section>
-        </nav>
-    </div>
-</div>
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div>
+
 <div class="row">
     <div class="large-10 columns">
 
     </div>
-    <div class="large-1 columns" ng-controller="LoadingCtrl">
+    <div class="large-1 columns">
         <p class="right loading">
             <i ng-show="Loading.isLoading" class="fa fa-circle-o-notch fa-spin fa-2x"></i>
         </p>
     </div>
 </div>
-
-<div class="row">
-        <div class="large-12 columns">
-            <div ng-show="user.isAuthenticated" class="row panel">
-                <div ng-view></div>
-            </div>
-        </div>
-        <div ng-show="!user.isAuthenticated" class="row">
-            <div class="login large-6 large-centered  medium-8 medium-centered small-10 small-centered columns panel round radius">
-
-                <div ng-show="hasError" class="row">
-                    <div data-alert class="alert-box radius">{{ "{{ message }}" }}</div>
-                </div>
-                <form novalidate="novalidate" ng-submit="submit()" data-abide>
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <div class="row collapse">
-                                <label>Identifiant :</label>
-
-                                <div class="small-9 columns">
-                                    <input ng-model="user.username" type="text" name="username" required
-                                           pattern="[0-9-a-zA-Z]+"/>
-                                </div>
-                                <div class="small-3 columns">
-                                    <span class="postfix"><i class="fa fa-user"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="large-4 columns">
-                            <div class="row collapse">
-                                <label>Mot de passe: </label>
-
-                                <div class="small-9 columns">
-                                    <input ng-model="user.password" type="password" name="_password"/>
-                                </div>
-                                <div class="small-3 columns">
-                                    <span class="postfix"><i class="fa fa-key"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-2 large-centered columns">
-                            <ul class="button-group even-1 large-2">
-                                <li><input class="button tiny" type="submit" value="Login"/></li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-
 </div>
-</div>
-</div>
-</body>
-</html>
-
+{% endblock %}
 

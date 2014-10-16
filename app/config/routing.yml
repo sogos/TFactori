@@ -14,11 +14,6 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /doc
 
-login_check:
-    pattern:   /api/login_check
-    options:
-        expose: true
-
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
@@ -27,3 +22,6 @@ api_root:
     pattern:   /api
     options:
         expose: true
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

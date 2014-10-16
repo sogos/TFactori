@@ -2,6 +2,7 @@
 
 namespace Ger\Bundle\WorkflowBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Ger\Bundle\WorkflowBundle\Model\Workflow as BaseWorkflow;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,15 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Workflow
  * @package Ger\Bundle\WorkflowBundle\Entity
  * @ORM\Entity
+ * @ORM\Table("workflows")
  */
 class Workflow extends BaseWorkflow {
 
     /**
      * @ORM\Id
      * @var id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @var steps
+     * @ORM\OneToMany(targetEntity="Ger\Bundle\WorkflowBundle\Entity\Step", mappedBy="workflow", cascade={"all"})
+     */
+    protected $steps;
 
     /**
      * @return id
@@ -25,6 +34,11 @@ class Workflow extends BaseWorkflow {
     public function getId()
     {
         return $this->id;
+    }
+
+    public function __construct()
+    {
+        $this->steps = New ArrayCollection();
     }
 
 

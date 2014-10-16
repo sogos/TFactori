@@ -35,10 +35,7 @@ class WorkflowControllerTest extends BaseController
         $content = $client->getResponse()->getContent();
         $this->assertTrue($client->getResponse()->getStatusCode() == 200, "Entity is not loaded or Sluggable behavior don't work");
         $content_decoded = json_decode($content, true);
-        $this->assertTrue(array_key_exists('success', $content_decoded));
-        $this->assertTrue(array_key_exists('workflow', $content_decoded));
-        $this->assertTrue($content_decoded['workflow']['slug'] == "test1");
-
+        $this->assertTrue($content_decoded['slug'] == "test1");
     }
 
     public function testPostWorkflowAction()
