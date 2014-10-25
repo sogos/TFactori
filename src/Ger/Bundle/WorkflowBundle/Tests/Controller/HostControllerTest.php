@@ -11,7 +11,6 @@ class HostControllerTest extends BaseController
         $client = $this->createAuthenticatedClient();
 
         $crawler = $client->request('GET', '/api/hosts.json');
-
         $this->assertTrue($client->getResponse()->getStatusCode() == 200);
         $content = $client->getResponse()->getContent();
         if(is_object(json_decode($content))) {

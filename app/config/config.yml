@@ -100,6 +100,7 @@ nelmio_api_doc:
     name: TFactori API
 
 fos_rest:
+    disable_csrf_role: ROLE_API
     exception:
         codes:
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404

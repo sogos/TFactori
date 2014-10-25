@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tcordier
- * Date: 27/09/2014
- * Time: 10:50
- */
 
 namespace Ger\Bundle\WorkflowBundle\Tests\Controller;
 
@@ -23,19 +17,11 @@ class BaseController extends WebTestCase {
      */
     protected function createAuthenticatedClient($username = 'admin', $password = 'kitten')
     {
-        $client = static::createClient();
-        $client->request(
-            'POST',
-            '/api/login_check',
-            array(
-                'username' => $username,
-                'password' => $password,
-            )
+        $this->auth = array(
+            'PHP_AUTH_USER' => $username,
+            'PHP_AUTH_PW'   => $password,
         );
-
-        $data = json_decode($client->getResponse()->getContent(), true);
-        $client = static::createClient();
-        $client->setServerParameter('HTTP_Authorization', sprintf('Bearer %s', $data['token']));
+        $client = static::createClient(array(), $this->auth );
 
         return $client;
     }
